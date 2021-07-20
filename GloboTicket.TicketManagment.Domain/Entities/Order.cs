@@ -1,8 +1,9 @@
 ﻿using System;
+using GloboTicket.TicketManagment.Domain.Common;
 
 namespace GloboTicket.TicketManagment.Domain.Entities
 {
-    public class Order
+    public class Order : AuditableEntity 
     {
         public Guid Id { get; set; }
         public Guid UserId { get; set; }
