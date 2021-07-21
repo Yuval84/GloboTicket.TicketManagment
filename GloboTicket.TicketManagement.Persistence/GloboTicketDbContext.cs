@@ -25,6 +25,7 @@ namespace GloboTicket.TicketManagement.Persistence
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
+            //search for configurations (located in the configurations folder)
             modelBuilder.ApplyConfigurationsFromAssembly(typeof(GloboTicketDbContext).Assembly);
 
             //seed data, added through migrations
