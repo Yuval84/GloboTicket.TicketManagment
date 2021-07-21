@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace GloboTicket.TicketManagment.Domain.Common
+namespace GloboTicket.TicketManagement.Domain.Common
 {
     public class AuditableEntity
     {

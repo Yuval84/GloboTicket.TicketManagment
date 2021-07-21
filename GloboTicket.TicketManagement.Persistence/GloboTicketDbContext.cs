@@ -4,9 +4,10 @@ using System.Linq;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
-using GloboTicket.TicketManagment.Domain.Common;
-using GloboTicket.TicketManagment.Domain.Entities;
+using GloboTicket.TicketManagement.Domain.Common;
+using GloboTicket.TicketManagement.Domain.Entities;
 using Microsoft.EntityFrameworkCore;
+
 
 namespace GloboTicket.TicketManagement.Persistence
 {

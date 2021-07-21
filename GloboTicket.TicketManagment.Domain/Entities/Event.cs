@@ -1,7 +1,7 @@
 ﻿using System;
-using GloboTicket.TicketManagment.Domain.Common;
+using GloboTicket.TicketManagement.Domain.Common;
 
-namespace GloboTicket.TicketManagment.Domain.Entities
+namespace GloboTicket.TicketManagement.Domain.Entities
 {
     public class Event : AuditableEntity 
     {

@@ -8,7 +8,7 @@ using GloboTicket.TicketManagement.Application.Features.Events.Commands.UpdateEv
 using GloboTicket.TicketManagement.Application.Features.Events.Queries.GetEventDetail;
 using GloboTicket.TicketManagement.Application.Features.Events.Queries.GetEventList;
 using GloboTicket.TicketManagement.Application.Features.Orders.Commands;
-using GloboTicket.TicketManagment.Domain.Entities;
+using GloboTicket.TicketManagement.Domain.Entities;
 
 namespace GloboTicket.TicketManagement.Application.Profiles
 {
