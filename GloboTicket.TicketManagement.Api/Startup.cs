@@ -1,13 +1,14 @@
+using GloboTicket.TicketManagement.Application;
+using GloboTicket.TicketManagement.Infrastructure;
+using GloboTicket.TicketManagement.Persistence;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.Extensions.Configuration;
+using Microsoft.OpenApi.Models;
 
 
 namespace GloboTicket.TicketManagement.Api
@@ -24,16 +25,30 @@ namespace GloboTicket.TicketManagement.Api
 
         public void ConfigureServices(IServiceCollection services)
         {
-            
-
+            services.AddApplicationServices();
+            services.AddInfrastructureServices(Configuration);
+            services.AddPersistenceService(Configuration);
             services.AddControllers();
 
             services.AddCors(options =>
             {
                 options.AddPolicy("Open", builder => builder.AllowAnyOrigin().AllowAnyHeader().AllowAnyMethod());
             });
-
         }
+
+        //private void AddSwagger(IServiceCollection services)
+        //{
+        //    services.AddSwaggerGen(c =>
+        //    {
+        //        c.SwaggerDoc("v1", new OpenApiInfo
+        //        {
+        //            Version = "v1",
+        //            Title = "GloboTicket Ticket Management API",
+        //        });
+        //        c.OperationFilter<F>();
+        //    });
+        //}
+
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
@@ -43,14 +58,14 @@ namespace GloboTicket.TicketManagement.Api
                 app.UseDeveloperExceptionPage();
             }
 
+            app.UseHttpsRedirection();
             app.UseRouting();
+
+            app.UseCors("Open");
 
             app.UseEndpoints(endpoints =>
             {
-                endpoints.MapGet("/", async context =>
-                {
-                    await context.Response.WriteAsync("Hello World!");
-                });
+                endpoints.MapControllers();
             });
         }
     }

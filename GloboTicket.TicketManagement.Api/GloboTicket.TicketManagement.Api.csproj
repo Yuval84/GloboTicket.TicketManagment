@@ -27,5 +27,9 @@
     <ProjectReference Include="..\Infrastructure\GloboTicket.TicketManagement.Infrastructure.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Controller\" />
+  </ItemGroup>
+
  
 </Project>
