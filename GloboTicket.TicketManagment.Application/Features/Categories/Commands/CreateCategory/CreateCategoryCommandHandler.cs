@@ -28,7 +28,7 @@ namespace GloboTicket.TicketManagement.Application.Features.Categories.Commands.
             var createCategoryCommandResponse = new CreateCategoryCommandResponse();
 
             var validator = new CreateCategoryCommandValidator();
-            var validatorResult = await validator.ValidateAsync(request);
+            var validatorResult = await validator.ValidateAsync(request, cancellationToken);
 
             if (validatorResult.Errors.Any())
             {
