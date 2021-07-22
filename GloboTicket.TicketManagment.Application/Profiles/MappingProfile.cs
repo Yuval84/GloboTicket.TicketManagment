@@ -7,8 +7,9 @@ using GloboTicket.TicketManagement.Application.Features.Events.Commands.DeleteEv
 using GloboTicket.TicketManagement.Application.Features.Events.Commands.UpdateEvent;
 using GloboTicket.TicketManagement.Application.Features.Events.Queries.GetEventDetail;
 using GloboTicket.TicketManagement.Application.Features.Events.Queries.GetEventList;
+using GloboTicket.TicketManagement.Application.Features.Events.Queries.GetEventsExport;
 using GloboTicket.TicketManagement.Application.Features.Orders.Commands;
-using GloboTicket.TicketManagment.Domain.Entities;
+using GloboTicket.TicketManagement.Domain.Entities;
 
 namespace GloboTicket.TicketManagement.Application.Profiles
 {
@@ -17,13 +18,18 @@ namespace GloboTicket.TicketManagement.Application.Profiles
         public MappingProfile()
         {
             CreateMap<Event, EventListVm>().ReverseMap();
+            CreateMap<Event, CreateEventCommand>().ReverseMap();
+            CreateMap<Event, UpdateEventCommand>().ReverseMap();
             CreateMap<Event, EventDetailVm>().ReverseMap();
+            CreateMap<Event, CategoryEventDto>().ReverseMap();
+            CreateMap<Event, EventsExportDto>().ReverseMap();
+
             CreateMap<Category, CategoryDto>();
             CreateMap<Category, CategoryListVm>();
             CreateMap<Category, CategoryEventListVm>();
-            CreateMap<Event, CreateEventCommand>().ReverseMap();
-            CreateMap<Event, UpdateEventCommand>().ReverseMap();
+            CreateMap<Category, CreateCategoryCommand>();
             CreateMap<Category, CreateCategoryDto>();
+
             CreateMap<Order, OrdersForMonthDto>();
         }
     }

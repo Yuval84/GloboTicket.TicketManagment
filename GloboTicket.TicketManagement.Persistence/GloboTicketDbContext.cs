@@ -4,9 +4,10 @@ using System.Linq;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
-using GloboTicket.TicketManagment.Domain.Common;
-using GloboTicket.TicketManagment.Domain.Entities;
+using GloboTicket.TicketManagement.Domain.Common;
+using GloboTicket.TicketManagement.Domain.Entities;
 using Microsoft.EntityFrameworkCore;
+
 
 namespace GloboTicket.TicketManagement.Persistence
 {
@@ -25,6 +26,7 @@ namespace GloboTicket.TicketManagement.Persistence
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
+            //search for configurations (located in the configurations folder)
             modelBuilder.ApplyConfigurationsFromAssembly(typeof(GloboTicketDbContext).Assembly);
 
             //seed data, added through migrations

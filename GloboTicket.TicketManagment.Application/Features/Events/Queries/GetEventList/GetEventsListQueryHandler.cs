@@ -4,7 +4,7 @@ using System.Threading;
 using System.Threading.Tasks;
 using AutoMapper;
 using GloboTicket.TicketManagement.Application.Contracts.Persistence;
-using GloboTicket.TicketManagment.Domain.Entities;
+using GloboTicket.TicketManagement.Domain.Entities;
 using MediatR;
 
 namespace GloboTicket.TicketManagement.Application.Features.Events.Queries.GetEventList
