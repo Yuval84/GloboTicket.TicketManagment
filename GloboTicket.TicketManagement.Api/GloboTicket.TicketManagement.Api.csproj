@@ -24,6 +24,7 @@
     <ProjectReference Include="..\GloboTicket.TicketManagement.Persistence\GloboTicket.TicketManagement.Persistence.csproj" />
     <ProjectReference Include="..\GloboTicket.TicketManagment.Application\GloboTicket.TicketManagement.Application.csproj" />
     <ProjectReference Include="..\GloboTicket.TicketManagment.Domain\GloboTicket.TicketManagement.Domain.csproj" />
+    <ProjectReference Include="..\GloboTicket.TicketManagment.Identity\GloboTicket.TicketManagement.Identity.csproj" />
     <ProjectReference Include="..\Infrastructure\GloboTicket.TicketManagement.Infrastructure.csproj" />
   </ItemGroup>
 
