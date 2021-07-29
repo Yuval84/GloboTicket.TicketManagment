@@ -1,30 +1,27 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Net.Http.Headers;
+﻿using System.Net.Http.Headers;
 using System.Threading.Tasks;
 using Blazored.LocalStorage;
-using GloboTicket.TicketManagement.App.Serviced;
 
-namespace GloboTicket.TicketManagement.App.Services.Base
+namespace GloboTicket.TicketManagement.App.Services
 {
     public class BaseDataService
     {
         protected readonly ILocalStorageService _localStorage;
-
+        
         protected IClient _client;
 
-        public BaseDataService(ILocalStorageService localStorage, IClient client)
+        public BaseDataService(IClient client, ILocalStorageService localStorage)
         {
-            _localStorage = localStorage;
             _client = client;
+            _localStorage = localStorage;
+
         }
 
         protected ApiResponse<Guid> ConvertApiExceptions<Guid>(ApiException ex)
         {
             if (ex.StatusCode == 400)
             {
-                return new ApiResponse<Guid>() { Message = "Validation errors have occurred.", ValidationErrors = ex.Response, Success = false };
+                return new ApiResponse<Guid>() { Message = "Validation errors have occured.", ValidationErrors = ex.Response, Success = false };
             }
             else if (ex.StatusCode == 404)
             {
@@ -41,13 +38,5 @@ namespace GloboTicket.TicketManagement.App.Services.Base
             if (await _localStorage.ContainKeyAsync("token"))
                 _client.HttpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", await _localStorage.GetItemAsync<string>("token"));
         }
-
-
-
-
-
-
-
     }
-
 }

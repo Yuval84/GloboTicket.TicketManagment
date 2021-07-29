@@ -1,6 +1,4 @@
-﻿using GloboTicket.TicketManagement.App.Serviced;
-using GloboTicket.TicketManagement.App.Services;
-using GloboTicket.TicketManagement.App.Services.Base;
+﻿using GloboTicket.TicketManagement.App.Services;
 using GloboTicket.TicketManagement.App.ViewModels;
 using System.Collections.Generic;
 using System.Threading.Tasks;

@@ -4,6 +4,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using GloboTicket.TicketManagement.Identity.Models;
+using GloboTicket.TicketManagement.Identity.Seed;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 
@@ -15,6 +17,6 @@ namespace GloboTicket.TicketManagement.Identity
         {
         }
 
-
+        
     }
 }

@@ -1,8 +1,8 @@
-﻿using GloboTicket.TicketManagement.App.Services.Base;
-using GloboTicket.TicketManagement.App.ViewModels;
+﻿using GloboTicket.TicketManagement.App.ViewModels;
 using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
+using GloboTicket.TicketManagement.App.Services;
 
 namespace GloboTicket.TicketManagement.App.Contracts
 {

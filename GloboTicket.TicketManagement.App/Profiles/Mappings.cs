@@ -1,5 +1,4 @@
 ﻿using AutoMapper;
-using GloboTicket.TicketManagement.App.Serviced;
 using GloboTicket.TicketManagement.App.Services;
 using GloboTicket.TicketManagement.App.ViewModels;
 
