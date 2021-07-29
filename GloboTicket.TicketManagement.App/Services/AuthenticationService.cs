@@ -1,8 +1,8 @@
 ﻿using Blazored.LocalStorage;
 using GloboTicket.TicketManagement.App.Auth;
 using GloboTicket.TicketManagement.App.Contracts;
-using GloboTicket.TicketManagement.App.Services.Base;
 using Microsoft.AspNetCore.Components.Authorization;
+using System;
 using System.Net.Http.Headers;
 using System.Threading.Tasks;
 
@@ -12,7 +12,7 @@ namespace GloboTicket.TicketManagement.App.Services
     {
         private readonly AuthenticationStateProvider _authenticationStateProvider;
 
-        public AuthenticationService(IClient client, ILocalStorageService localStorage, AuthenticationStateProvider authenticationStateProvider) : base(client, localStorage)
+        public AuthenticationService(IClient client , ILocalStorageService localStorage, AuthenticationStateProvider authenticationStateProvider) : base(client, localStorage)
         {
             _authenticationStateProvider = authenticationStateProvider;
         }
@@ -21,7 +21,7 @@ namespace GloboTicket.TicketManagement.App.Services
         {
             try
             {
-                AuthenticationRequest AuthenticationRequest() { Email = email, Password = password };
+                AuthenticationRequest authenticationRequest = new AuthenticationRequest() { Email = email, Password = password };
                 var authenticationResponse = await _client.AuthenticateAsync(authenticationRequest);
 
                 if (authenticationResponse.Token != string.Empty)
@@ -31,9 +31,9 @@ namespace GloboTicket.TicketManagement.App.Services
                     _client.HttpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("bearer", authenticationResponse.Token);
                     return true;
                 }
-                return false;
+                return false; 
             }
-            catch
+            catch 
             {
                 return false;
             }
@@ -48,7 +48,7 @@ namespace GloboTicket.TicketManagement.App.Services
             {
                 return true;
             }
-            return false;
+            return false; 
         }
 
         public async Task Logout()

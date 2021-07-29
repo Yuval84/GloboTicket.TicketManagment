@@ -1,3 +1,4 @@
+using AutoMapper;
 using Blazored.LocalStorage;
 using GloboTicket.TicketManagement.App.Auth;
 using GloboTicket.TicketManagement.App.Contracts;
@@ -9,7 +10,6 @@ using System;
 using System.Net.Http;
 using System.Reflection;
 using System.Threading.Tasks;
-using GloboTicket.TicketManagement.App.Serviced;
 
 namespace GloboTicket.TicketManagement.App
 {
@@ -32,9 +32,7 @@ namespace GloboTicket.TicketManagement.App
                 BaseAddress = new Uri("https://localhost:5001")
             });
 
-
-            builder.Services.AddHttpClient<IClient, Client>(client =>
-                client.BaseAddress = new Uri("https://localhost:5001"));
+            builder.Services.AddHttpClient<IClient, Client>(client => client.BaseAddress = new Uri("https://localhost:5001"));
 
             builder.Services.AddScoped<IEventDataService, EventDataService>();
             builder.Services.AddScoped<ICategoryDataService, CategoryDataService>();
